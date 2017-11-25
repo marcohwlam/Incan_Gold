@@ -1,6 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-
 /**
  * Created by Ho on 10/23/2017.
  */
@@ -14,9 +11,9 @@ public class main {
                 }catch (InterruptedException ex){
 
                 }
-                GameModel G = new GameModel();
-                //GameView GV = new GameView();
-                //GV.showFrame();
+                Game G = new Game();
+                //GameModel GM = new GameModel();
+                //G.startGame();
             }
         });
     }

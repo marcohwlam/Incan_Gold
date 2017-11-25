@@ -1,32 +1,119 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.*;
 
 /**
- * Created by Ho on 10/23/2017.
+ * Created by Ho on 11/11/2017.
  */
-public class GameModel {
+public class Game extends JFrame implements Runnable {
+
+    //region GUI var
+    public JPanel mainPanel;
+    public JPanel topBar;
+    public JPanel centerPan;
+    public JPanel botPan;
+    public JPanel leftPan;
+    public JPanel rightPan;
+    public JPanel deckArea;
+    public JPanel questArea;
+    public JPanel roundTrackerArea;
+    public JPanel platerArea;
+    public JLabel deckIcon;
+    public JLabel deckCount;
+    public JLabel roundIcon;
+    public ArrayList<JLabel> qCardLabel;
+    public JFrame frame;
+
+    //endregion
+
     // region Var
     private Deck deck;
     private Adventure adventure = new Adventure();
     private ArrayList<Player> playersList = new ArrayList<>();
     private ArrayList<Player> playersInTemple = new ArrayList<>();
-    private Map<Player, Action> playerAction = new HashMap<>();
+    private ArrayList<Player> playersInDecision = new ArrayList<>();
+    private Map<Player, Game.Action> playerAction = new HashMap<>();
     private int artifactCount = 0;
     private boolean gameAlive = true;
+    private boolean roundAlive = true;
+
+    @Override
+    public void run() {
+
+//        while (gameAlive){
+//            startRound();
+//        }
+//        endGame();
+        startRound();
+
+        // Deal Card
+        dealQuestCard();
+        showQuestCard();
+
+    }
+
     private enum Round {One, Two, Three, Four, Five}
-    private Game game;
-    private enum Action {Stay, Go_Back}
-    private Round currentRound;
+    public enum Action {Stay, Go_Back}
+    private Game.Round currentRound;
     //endregion
 
-    public GameModel() {
+    Game() {
+        System.out.println("in Game Constuct");
         // Spawn frame
-        this.game = new Game();
-        this.game.initFrame();
+        initFrame();
+        //updateRoundIcon("/img/round1.PNG");
+        startGame();
+    }
 
+    boolean _gameActive = false;
+
+    KeyController _keyController = new KeyController() {
+        @Override
+        public void triggerAction(Action action) {
+
+            // determine player
+            // if no player in the temple
+            if (playersInTemple.size()==0){
+                System.out.println("No player in temple");
+                roundAlive = false;
+                _keyController.setActivePlayer(null);
+            }else {
+                System.out.println("Put player action in action list");
+                playerAction.put(_keyController.getActivePlayer(), action);
+                //handel last player
+                if (playersInDecision.size() > 1){
+                    //set active player to the next
+                    _keyController.setActivePlayer(playersInDecision.get(1));
+                    System.out.println( _keyController.getActivePlayer().getName() + " turn");
+                }
+                playersInDecision.remove(0);
+            }
+
+            // action
+            // When everyone is done with action
+            if (playersInDecision.size() == 0){
+                //  detect end of game = gameAlive
+                startTurn();
+                if(!roundAlive) {
+                    //  detect if end of round -> setup new round = roundAlive
+                    endRound();
+                    startRound();
+                    if (!gameAlive) {
+                        endGame();
+                    }
+                }
+            }
+
+        }
+    };
+
+    //region Game Logic
+    void startGame(){
         // Debug use playe
         this.playersList.add(new Player("Player 1"));
         this.playersList.add(new Player("Player 2"));
@@ -38,53 +125,52 @@ public class GameModel {
         this.deck.shuffle();
 
         // init round counter
-        this.currentRound = Round.One;
-
-        // Game Alive
-
-        // Start round 1
-        while (gameAlive){
-            startRound();
-        }
-
-        endGame();
+        this.currentRound = Game.Round.One;
+        frame.addKeyListener(_keyController);
+        //  Start round 1
+        Thread t = new Thread(this);
+        t.start();
     }
 
-    public void addPlayer() {
+    void checkAndStartRound() {}
 
-    }
-
-    //region Game Logic
     private void startRound() {
+        System.out.println("Start new round");
         // Put all the player back to Temple
-        this.playersInTemple.addAll(this.playersList);
+        playersInTemple.addAll(this.playersList);
+        playersInDecision.addAll(this.playersList);
+
+        _keyController.setActivePlayer(playersInTemple.get(0));
+        System.out.println(_keyController.getActivePlayer().getName() + " turn");
+
         // Push new artifact card in the deck
         this.deck.push(makeArtifact(currentRound));
         // Shuffle
         this.deck.shuffle();
-        boolean roundAlive = true;
+
 
         showRound();
 
-        // Start turn 1
-        while (roundAlive) {
-            roundAlive = startTurn();
-        }
-        endRound();
+//        // Start turn 1
+//        while (roundAlive) {
+//            roundAlive = startTurn();
+//        }
+        //endRound();
     }
 
-    private boolean startTurn() {
+    private  void startTurn() {
+        //Set active player
+        _keyController.setActivePlayer(playersInTemple.get(0));
 
-        // Deal Card
-        dealQuestCard();
-        showQuestCard();
-        updateDeckCount();
+        // Put all the player back to decision
+        this.playersInDecision.addAll(this.playersInTemple);
 
-        // Player decide action
-        for (Player p : this.playersInTemple) {
-            System.out.print(p.getName() + "\n");
-            this.playerAction.put(p, promptChoices());
-        }
+
+//        // Player decide action
+//        for (Player p : this.playersInTemple) {
+//            System.out.print(p.getName() + "\n");
+//            this.playerAction.put(p, promptChoices());
+//        }
 
         // Show action
         showPlayerAction();
@@ -94,23 +180,29 @@ public class GameModel {
 
         //End false if no one in temple
         if (playersInTemple.size() == 0) {
-            return false;
+            roundAlive = false;
         }
 
         // if last card is harzard
         if (this.adventure.readLastCard() instanceof HazardCard) {
             // Check Hazard
             System.out.print("Boom");
-            return !hasTwoHazards();
+            roundAlive = !hasTwoHazards();
         } else if (this.adventure.readLastCard() instanceof TreasureCard) {
             // Distribute treasure
             distributeTreasure();
         }
 
-        return true;
+        // Deal Card
+        dealQuestCard();
+        showQuestCard();
+        updateDeckCount(deck.getCards().size());
+
+        roundAlive = true;
     }
 
     private void endRound() {
+        System.out.println("End of Round");
         // reset adventure
         adventure.clear();
 
@@ -122,16 +214,16 @@ public class GameModel {
         // currentRound ++
         switch (currentRound) {
             case One:
-                this.currentRound = Round.Two;
+                this.currentRound = Game.Round.Two;
                 break;
             case Two:
-                this.currentRound = Round.Three;
+                this.currentRound = Game.Round.Three;
                 break;
             case Three:
-                this.currentRound = Round.Four;
+                this.currentRound = Game.Round.Four;
                 break;
             case Four:
-                this.currentRound = Round.Five;
+                this.currentRound = Game.Round.Five;
                 break;
             case Five:
                 gameAlive = false;
@@ -143,7 +235,7 @@ public class GameModel {
         showScoreBoard();
     }
 
-    private ArtifactCard makeArtifact(Round r) {
+    private ArtifactCard makeArtifact(Game.Round r) {
         switch (r) {
             case One:
             case Two:
@@ -163,7 +255,7 @@ public class GameModel {
         this.adventure.push(this.deck.pop());
     }
 
-    private Action promptChoices() {
+    private Game.Action promptChoices() {
         System.out.print("Press [S]tay, or [G]o Back\n");
         Scanner scan = new Scanner(System.in);
         String s = scan.next();
@@ -172,9 +264,9 @@ public class GameModel {
             s = scan.next();
         }
         if (s.equals("S"))
-            return Action.Stay;
+            return Game.Action.Stay;
 
-        return Action.Go_Back;
+        return Game.Action.Go_Back;
 
     }
 
@@ -194,7 +286,7 @@ public class GameModel {
         // Remove go back players and add score to tent
         ArrayList<Player> pT = (ArrayList<Player>) this.playersInTemple.clone();
         for (Player p : pT) {
-            if (this.playerAction.get(p) == Action.Go_Back) {
+            if (this.playerAction.get(p) == Game.Action.Go_Back) {
                 // Add hand score to tent
                 p.addTentScore(p.getHandScore());
 
@@ -221,7 +313,7 @@ public class GameModel {
     private int getGoBackCount() {
         int goBackCount = 0;
         for (Player p : this.playersInTemple) {
-            if (this.playerAction.get(p) == Action.Go_Back) {
+            if (this.playerAction.get(p) == Game.Action.Go_Back) {
                 goBackCount++;
             }
         }
@@ -270,9 +362,6 @@ public class GameModel {
     //endregion
 
     // region UI update
-    private void updateDeckCount() {
-        this.game.updateDeckCount(deck.getCards().size());
-    }
 
     private void showRound() {
         String roundImgPath = "/img/round1.PNG";
@@ -299,7 +388,7 @@ public class GameModel {
                 roundImgPath = "/img/round5.PNG";
                 break;
         }
-        game.updateRoundIcon(roundImgPath);
+        updateRoundIcon(roundImgPath);
         System.out.print(round + "\n");
     }
 
@@ -319,8 +408,8 @@ public class GameModel {
 
     private void showPlayerAction() {
         for (Player p : this.playersInTemple) {
-            Action act = this.playerAction.get(p);
-            if (act == Action.Go_Back) {
+            Game.Action act = this.playerAction.get(p);
+            if (act == Game.Action.Go_Back) {
                 System.out.print(p.getName() + "go back to tent\n");
             } else {
                 System.out.print(p.getName() + "stay in the adventure\n");
@@ -335,5 +424,77 @@ public class GameModel {
         }
 
     }
+
+    void initFrame() {
+        frame = new JFrame("Game");
+        frame.setContentPane(mainPanel);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setMinimumSize(new Dimension(800, 600) );
+        frame.setVisible(true);
+        // show deck image
+        showDeck();
+        // show player image
+        // TODO
+        System.out.println("End init");
+    }
+
+    void showFrame() {
+//        frame = new JFrame("Game");
+//        frame.setContentPane(new Game().mainPanel);
+//        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+//        frame.pack();
+//        frame.setVisible(true);
+//        System.out.println("End showFrame");
+    }
+
+    void showDeck() {
+        try {
+            BufferedImage img = ImageIO.read(this.getClass().getResource("/img/deck.PNG"));
+            deckIcon.setIcon(new ImageIcon(img));
+            System.out.println("End showDeck");
+        } catch (IOException ex) {
+            // handle exception...
+            System.out.print("Error loading deck image");
+        }
+    }
+
+    void updateDeckCount(int count) {
+        System.out.println(deckCount.getText());
+        deckCount.setText("Number of Card in the deck: " + count);
+        System.out.println(deckCount.getText());
+
+    }
+
+    void updateRoundIcon(String iconPath) {
+        try {
+            BufferedImage img = ImageIO.read(this.getClass().getResource(iconPath));
+            roundIcon.setIcon(new ImageIcon(img));
+            roundIcon.revalidate();
+            roundIcon.repaint();
+
+        } catch (IOException ex) {
+            // handle exception...
+            System.out.print("Error loading round image");
+        }
+    }
+
+    void updateQuestArea(Adventure adventure) {
+        qCardLabel = new ArrayList<>();
+        for (Card c : adventure.getCards()) {
+            try {
+                BufferedImage img = ImageIO.read(this.getClass().getResource(c.getImagePath()));
+                qCardLabel.add(new JLabel(new ImageIcon(img)));
+            } catch (IOException ex) {
+                System.out.print("Error loading round image");
+            }
+        }
+
+        for (JLabel label : qCardLabel) {
+            questArea.add(label);
+        }
+
+    }
     // endregion
+
 }
