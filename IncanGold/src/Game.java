@@ -74,7 +74,6 @@ public class Game extends JFrame implements Runnable {
         startGame();
     }
 
-
     KeyController _keyController = new KeyController() {
         @Override
         public void triggerAction(Action action) {
@@ -103,30 +102,28 @@ public class Game extends JFrame implements Runnable {
                 if(!roundAlive) {
                     //  detect if end of round -> setup new round = roundAlive
                     endRound();
-                    startRound();
-                    if (!gameAlive) {
-                        endGame();
-                    }
+                    _keyController.set_waitForConfirm(true);
+                    _keyController.set_playerInputActive(false);
                 }
-                _keyController.setActivePlayer(playersInTemple.get(0));
+                if (roundAlive){
+                    _keyController.setActivePlayer(playersInTemple.get(0));
+                }
             }
-            String  msg = _keyController.getActivePlayer().getName() + " turn, Press [S]tay [G]o back to tent";
-            System.out.println( msg);
-            turnTraker.setText(msg);
+            if (roundAlive){
+                String  msg = _keyController.getActivePlayer().getName() + " turn, Press [S]tay [G]o back to tent";
+                System.out.println( msg);
+                turnTraker.setText(msg);
+            }
         }
 
         @Override
         public void confirmNextRound(){
-            String  msg = _keyController.getActivePlayer().getName() + " turn, Press [S]tay [G]o back to tent";
-            System.out.println( msg);
-            turnTraker.setText(msg);
             startRound();
             if (!gameAlive) {
                 endGame();
             }
         }
     };
-
 
     //region Game Logic
     void startGame(){
@@ -154,12 +151,15 @@ public class Game extends JFrame implements Runnable {
         // Setup first turn
         startRound();
         showDeck();
-
+        _keyController.set_playerInputActive(true);
     }
 
     private void startRound() {
         System.out.println("Start new round");
+        roundAlive =true;
         // Put all the player back to Temple
+        playersInTemple.clear();
+        playersInDecision.clear();
         playersInTemple.addAll(this.playersList);
         playersInDecision.addAll(this.playersList);
 
@@ -168,9 +168,9 @@ public class Game extends JFrame implements Runnable {
             updatePlayerActionCard(p);
         }
 
-        _keyController.setActivePlayer(playersInTemple.get(0));
+        _keyController.setActivePlayer(playersInDecision.get(0));
         // Prompt Player 1 action
-        String  msg = _keyController.getActivePlayer().getName() + "    turn Press [S]tay, [G]o back to tent";
+        String  msg = _keyController.getActivePlayer().getName() + " turn Press [S]tay, [G]o back to tent";
         System.out.println(msg);
         turnTraker.setText(msg);
 
@@ -189,7 +189,6 @@ public class Game extends JFrame implements Runnable {
             // Distribute treasure
             distributeTreasure();
         }
-
 //        // Start turn 1
 //        while (roundAlive) {
 //            roundAlive = startNextTurn();
@@ -222,6 +221,9 @@ public class Game extends JFrame implements Runnable {
         //End false if no one in temple
         if (playersInTemple.size() == 0) {
             roundAlive = false;
+            String  msg = "All explore head back to tent.";
+            System.out.println( msg);
+            turnTraker.setText(msg);
         }
 
         if (roundAlive){
@@ -247,14 +249,41 @@ public class Game extends JFrame implements Runnable {
     }
 
     private void endRound() {
+        String  msg = "Round ended. Press Enter to start next round";
+        System.out.println( msg);
+        turnTraker.setText(msg);
+
         System.out.println("End of Round");
-        // reset adventure
-        adventure.clear();
+
+
+        if (hasTwoHazards()){
+            //Remove the hazard from deck
+            ArrayList<Card> deckCopy = (ArrayList<Card>) deck.getCards().clone();
+            for(Card c: deckCopy){
+                if (c.getName().equals(adventure.readLastCard().getName())){
+                    deck.remove(c);
+                }
+            }
+            //Remove the hazard from adventure
+            ArrayList<Card> adventureCopy = (ArrayList<Card>) adventure.getCards().clone();
+            for(Card c: adventureCopy){
+                if (c.getName().equals(adventure.readLastCard().getName())){
+                    adventure.remove(c);
+                }
+            }
+        }
+
+        // push quest cards back to deck
+        while (adventure.getCards().size() > 0){
+            deck.push(adventure.pop());
+        }
 
         // reset all player hand score to 0
         for (Player p : this.playersList) {
             p.setHandScore(0);
         }
+        // reset adventure score to 0
+        adventure.setTreasureOnTheRoad(0);
 
         // currentRound ++
         switch (currentRound) {
@@ -321,7 +350,7 @@ public class Game extends JFrame implements Runnable {
         TreasureCard lastCard = (TreasureCard) this.adventure.readLastCard();
 
         //update notice bar
-        noticeBar.setText( noticeBar.getText() + " ,Each player in the temple get "+ lastCard.getTreasureValue()/ this.playersInTemple.size() + " gems");
+        noticeBar.setText( noticeBar.getText() + ". Explorers still in the temple obtain "+ lastCard.getTreasureValue()/ this.playersInTemple.size() + "  gem(s) each.");
 
         for (Player p : this.playersInTemple) {
             // divide treasure on the road
@@ -385,10 +414,10 @@ public class Game extends JFrame implements Runnable {
             for (Card c : tempCardList) {
                 if (artifactCount < 4) {
                     p.addTentScore(5);
-                    System.out.println(p.getName() + " got 5 point from artifact");
+                    System.out.println(" " + p.getName() + " got 5 point from artifact");
                 } else {
                     p.addTentScore(10);
-                    System.out.println(p.getName() + " got 10 point from artifact");
+                    System.out.println(" " + p.getName() + " got 10 point from artifact");
                 }
                 // Add artifacts to player hand
                 p.addArtifacts(c);
@@ -414,6 +443,9 @@ public class Game extends JFrame implements Runnable {
                     //If there is same type of hazard before end the round
                     if (hazardName.equals(tempCardList.get(i).getName())) {
                         // End round
+                        noticeBar.setText("The explorers saw two " + tempCardList.get(i).getName() + "They ran away from the temple. (These type of hazard will be removed from the deck)");
+                        noticeBar.revalidate();
+                        noticeBar.repaint();
                         return true;
                     }
                 }

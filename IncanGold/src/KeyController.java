@@ -8,6 +8,15 @@ public abstract class KeyController implements KeyListener, GameEvent {
 
     private boolean _waitForConfirm = false;
     private Player _activePlayer = null;
+
+    public boolean is_playerInputActive() {
+        return _playerInputActive;
+    }
+
+    public void set_playerInputActive(boolean _playerInputActive) {
+        this._playerInputActive = _playerInputActive;
+    }
+
     private boolean _playerInputActive = false;
 
     public boolean is_waitForConfirm() {
@@ -49,17 +58,22 @@ public abstract class KeyController implements KeyListener, GameEvent {
         if (_waitForConfirm){
             if (e.getKeyChar() ==KeyEvent.VK_ENTER){
                 confirmNextRound();
+                set_waitForConfirm(false);
+                set_playerInputActive(true);
             }
         }
 
-        switch (e.getKeyChar()) {
-            case 'g' | 'G':
-                triggerAction(Game.Action.Go_Back);
+        if (_playerInputActive){
+            switch (e.getKeyChar()) {
+                case 'g' | 'G':
+                    triggerAction(Game.Action.Go_Back);
 
-                break;
-            case 's' | 'S':
-                triggerAction(Game.Action.Stay);
-                break;
+                    break;
+                case 's' | 'S':
+                    triggerAction(Game.Action.Stay);
+                    break;
+            }
         }
+
     }
 }
