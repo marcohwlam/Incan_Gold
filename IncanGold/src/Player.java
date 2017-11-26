@@ -7,7 +7,7 @@ public class Player {
     private int handScore;
     private int tentScore;
     private String name;
-    private ArrayList<Card> artifacts;
+    private ArrayList<Card> artifacts = new ArrayList<>();
 
     public Player(String name) {
         this.name = name;

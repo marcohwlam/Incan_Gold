@@ -23,13 +23,13 @@ public class Adventure extends CardContainer {
         this.treasureOnTheRoad += treasureOnTheRoad;
     }
 
-    @Override
-    void push(Card card) {
-        super.push(card);
-        if (card instanceof TreasureCard){
-            this.treasureOnTheRoad += ((TreasureCard) card).getTreasureValue();
-        }
-    }
+//    @Override
+//    void push(Card card) {
+//        super.push(card);
+//        if (card instanceof TreasureCard){
+//            this.treasureOnTheRoad += ((TreasureCard) card).getTreasureValue();
+//        }
+//    }
 
     int getTotalArtifectScore(){
         int totalArtScore = 0;
@@ -42,8 +42,9 @@ public class Adventure extends CardContainer {
     }
 
     ArrayList<Card> popAllArtifact(){
-        ArrayList<Card> artCards = null;
-        for (Card c: getCards()) {
+        ArrayList<Card> artCards = new ArrayList<>();
+        ArrayList<Card> cloneCards = (ArrayList<Card>) getCards().clone();
+        for (Card c: cloneCards) {
             if (c instanceof ArtifactCard){
                 artCards.add(c);
                 this.remove(c);

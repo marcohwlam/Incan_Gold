@@ -1,24 +1,29 @@
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by Ho on 11/24/2017.
  */
 public abstract class KeyController implements KeyListener, GameEvent {
 
-
-
+    private boolean _waitForConfirm = false;
     private Player _activePlayer = null;
-    private boolean _controllerActive = false;
+    private boolean _playerInputActive = false;
+
+    public boolean is_waitForConfirm() {
+        return _waitForConfirm;
+    }
+
+    public void set_waitForConfirm(boolean _waitForConfirm) {
+        this._waitForConfirm = _waitForConfirm;
+    }
 
     public boolean isControllerActive() {
-        return _controllerActive;
+        return _playerInputActive;
     }
 
     public void setControllerActive(boolean _controllerActive) {
-        this._controllerActive = _controllerActive;
+        this._playerInputActive = _controllerActive;
     }
 
     public void setActivePlayer(Player player) {
@@ -41,6 +46,12 @@ public abstract class KeyController implements KeyListener, GameEvent {
     public void keyReleased(KeyEvent e) {
         if (_activePlayer == null)
             return;
+        if (_waitForConfirm){
+            if (e.getKeyChar() ==KeyEvent.VK_ENTER){
+                confirmNextRound();
+            }
+        }
+
         switch (e.getKeyChar()) {
             case 'g' | 'G':
                 triggerAction(Game.Action.Go_Back);
