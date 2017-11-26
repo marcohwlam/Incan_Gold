@@ -3,7 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.*;
+import java.util.List;
 
 /**
  * Created by Ho on 11/11/2017.
@@ -118,10 +120,12 @@ public class Game extends JFrame implements Runnable {
 
         @Override
         public void confirmNextRound(){
-            startRound();
             if (!gameAlive) {
                 endGame();
+            }else {
+                startRound();
             }
+
         }
     };
 
@@ -277,10 +281,12 @@ public class Game extends JFrame implements Runnable {
         while (adventure.getCards().size() > 0){
             deck.push(adventure.pop());
         }
+        updateDeckCount(deck.getCards().size());
 
         // reset all player hand score to 0
         for (Player p : this.playersList) {
             p.setHandScore(0);
+            updatePlayerHandScore(p);
         }
         // reset adventure score to 0
         adventure.setTreasureOnTheRoad(0);
@@ -306,6 +312,16 @@ public class Game extends JFrame implements Runnable {
     }
 
     private void endGame() {
+        String  msg = "Game Ended";
+        System.out.println( msg);
+        turnTraker.setText(msg);
+        List<Player> playerRank = new ArrayList<>();
+        playerRank.addAll(playersList);
+        Collections.sort(playerRank);
+        msg =  "The winner is " + playerRank.get(0).getName() + ", with a score of "+ playerRank.get(0).getTentScore();
+        System.out.println( msg);
+        noticeBar.setText(msg);
+
         showScoreBoard();
     }
 
@@ -690,7 +706,6 @@ public class Game extends JFrame implements Runnable {
         }
         // Clear label array
         qCardLabels.clear();
-
     }
     // endregion
 

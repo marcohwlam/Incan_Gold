@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Created by Ho on 10/23/2017.
  */
-public class Player {
+public class Player implements Comparable<Player>{
     private int handScore;
     private int tentScore;
     private String name;
@@ -53,5 +53,16 @@ public class Player {
 
     public void addArtifacts(Card c) {
         this.artifacts.add(c);
+    }
+
+    @Override
+    public int compareTo(Player comparePlayer) {
+        int compareScore = comparePlayer.getTentScore();
+
+        //ascending order
+        //return this.tentScore - compareScore;
+
+        //descending order
+        return compareScore - this.tentScore;
     }
 }

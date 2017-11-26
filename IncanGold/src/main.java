@@ -12,8 +12,6 @@ public class main {
 
                 }
                 Game G = new Game();
-                //GameModel GM = new GameModel();
-                //G.startGame();
             }
         });
     }
