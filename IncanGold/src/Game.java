@@ -125,7 +125,6 @@ public class Game extends JFrame implements Runnable {
             }else {
                 startRound();
             }
-
         }
     };
 

@@ -50,7 +50,7 @@
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <font size="22"/>
+              <font size="26"/>
               <text value=""/>
             </properties>
           </component>
@@ -90,11 +90,12 @@
                   </component>
                   <component id="e43df" class="javax.swing.JLabel" binding="deckIcon">
                     <constraints>
-                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="10" fill="0" indent="0" use-parent-layout="false"/>
                     </constraints>
                     <properties>
                       <icon value="img/deck.PNG"/>
                       <text value=""/>
+                      <verticalAlignment value="0"/>
                     </properties>
                   </component>
                 </children>
@@ -124,6 +125,8 @@
                   <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
+                  <horizontalAlignment value="11"/>
+                  <icon value="img/gem.PNG"/>
                   <text value="Treasure on the road: 0"/>
                 </properties>
               </component>
@@ -206,7 +209,7 @@
                         <properties>
                           <horizontalTextPosition value="0"/>
                           <icon value="img/tent.PNG"/>
-                          <text value=""/>
+                          <text value="Gem in tent :0"/>
                         </properties>
                       </component>
                     </children>
@@ -226,7 +229,7 @@
                         <properties>
                           <horizontalTextPosition value="0"/>
                           <icon value="img/tent.PNG"/>
-                          <text value=""/>
+                          <text value="Gem in tent :0"/>
                         </properties>
                       </component>
                       <component id="67ae9" class="javax.swing.JLabel" binding="player4Hand">
@@ -264,7 +267,7 @@
                         <properties>
                           <horizontalTextPosition value="0"/>
                           <icon value="img/tent.PNG"/>
-                          <text value=""/>
+                          <text value="Gem in tent :0"/>
                         </properties>
                       </component>
                       <component id="4f857" class="javax.swing.JLabel" binding="player3Hand">
@@ -307,7 +310,7 @@
                         <properties>
                           <horizontalTextPosition value="0"/>
                           <icon value="img/tent.PNG"/>
-                          <text value=""/>
+                          <text value="Gem in tent :0"/>
                         </properties>
                       </component>
                       <component id="bd9fd" class="javax.swing.JLabel" binding="player2Hand">

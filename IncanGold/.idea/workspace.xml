@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="IncanGold:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/Game.java" line="78" />
-    <bookmark url="file://$PROJECT_DIR$/src/Game.java" line="546" />
+    <bookmark url="file://$PROJECT_DIR$/src/Game.java" line="545" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5a0e3b9-06ff-4deb-8b83-7ca1bb771150" name="Default" comment="" />
@@ -19,42 +24,65 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.45304438">
+    <splitter split-orientation="horizontal" split-proportion="0.70946246">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Game.form" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/Game.form">
+              <provider selected="true" editor-type-id="ui-designer">
+                <state />
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="133">
-                  <caret line="75" column="20" lean-forward="true" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+                <state relative-caret-position="306">
+                  <caret line="711" column="0" lean-forward="true" selection-start-line="711" selection-start-column="0" selection-end-line="711" selection-end-column="0" />
                   <folding>
                     <element signature="docComment;class#Game#0" expanded="false" />
                     <element signature="n#!!doc;n#mainPanel#0;n#Game#0" expanded="false" />
                     <element signature="n#!!doc;n#deck#0;n#Game#0" expanded="false" />
                     <element signature="class#Round#0;class#Game#0" expanded="false" />
                     <element signature="class#Action#0;class#Game#0" expanded="false" />
+                    <element signature="method#Game#0;class#Game#0" expanded="false" />
+                    <element signature="class#2319:4146" expanded="false" />
+                    <element signature="method#triggerAction#0;class#2319:4146" expanded="false" />
+                    <element signature="e#2419#2438#0" expanded="false" />
                     <element signature="e#3078#3087#0" expanded="false" />
+                    <element signature="method#confirmNextRound#0;class#2319:4146" expanded="false" />
+                    <element signature="n#!!doc;n#startGame#0;n#Game#0" expanded="false" />
+                    <element signature="method#startGame#0;class#Game#0" expanded="false" />
                     <element signature="method#run#0;class#Game#0" expanded="false" />
-                    <element signature="e#6022#6047#0" expanded="false" />
-                    <element signature="e#6201#6234#0" expanded="false" />
+                    <element signature="method#startRound#0;class#Game#0" expanded="false" />
+                    <element signature="e#6021#6046#0" expanded="false" />
+                    <element signature="method#startNextTurn#0;class#Game#0" expanded="false" />
+                    <element signature="e#6200#6233#0" expanded="false" />
+                    <element signature="method#endRound#0;class#Game#0" expanded="false" />
+                    <element signature="method#endGame#0;class#Game#0" expanded="false" />
+                    <element signature="method#makeArtifact#0;class#Game#0" expanded="false" />
                     <element signature="method#dealQuestCard#0;class#Game#0" expanded="false" />
                     <element signature="method#promptChoices#0;class#Game#0" expanded="false" />
                     <element signature="method#distributeTreasure#0;class#Game#0" expanded="false" />
+                    <element signature="method#goBackToTent#0;class#Game#0" expanded="false" />
                     <element signature="method#getGoBackCount#0;class#Game#0" expanded="false" />
                     <element signature="method#giveArtifactScore#0;class#Game#0" expanded="false" />
+                    <element signature="method#hasTwoHazards#0;class#Game#0" expanded="false" />
+                    <element signature="e#15734#15753#0" expanded="false" />
                     <element signature="method#showRound#0;class#Game#0" expanded="false" />
                     <element signature="method#showScoreBoard#0;class#Game#0" expanded="false" />
                     <element signature="method#showPlayerAction#0;class#Game#0" expanded="false" />
                     <element signature="method#showQuestCard#0;class#Game#0" expanded="false" />
                     <element signature="method#initFrame#0;class#Game#0" expanded="false" />
-                    <element signature="e#18103#18123#0" expanded="false" />
+                    <element signature="e#18102#18122#0" expanded="false" />
                     <element signature="method#showFrame#0;class#Game#0" expanded="false" />
-                    <element signature="e#18210#18247#0" expanded="false" />
+                    <element signature="e#18209#18246#0" expanded="false" />
                     <element signature="method#showDeck#0;class#Game#0" expanded="false" />
                     <element signature="method#updateDeckCount#0;class#Game#0" expanded="false" />
                     <element signature="method#updateRoundIcon#0;class#Game#0" expanded="false" />
                     <element signature="method#updateTentScore#0;class#Game#0" expanded="false" />
                     <element signature="method#updatePlayerHandScore#0;class#Game#0" expanded="false" />
+                    <element signature="method#updatePlayerActionCard#0;class#Game#0" expanded="false" />
                     <element signature="method#updateTreasureOnTheRoad#0;class#Game#0" expanded="false" />
                     <element signature="method#updateQuestArea#0;class#Game#0" expanded="false" />
                   </folding>
@@ -62,55 +90,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ArtifactCard.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/ArtifactCard.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Component.java" pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Component.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="6493" column="0" lean-forward="false" selection-start-line="6493" selection-start-column="0" selection-end-line="6493" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Window.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="2024" column="0" lean-forward="false" selection-start-line="2024" selection-start-column="0" selection-end-line="2024" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="KeyController.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/KeyController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="293">
-                  <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+                <state relative-caret-position="102">
+                  <caret line="6" column="71" lean-forward="false" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#310#311#0" expanded="true" />
-                    <element signature="e#351#352#0" expanded="true" />
-                    <element signature="e#420#421#0" expanded="true" />
-                    <element signature="e#480#481#0" expanded="true" />
-                    <element signature="e#571#572#0" expanded="true" />
-                    <element signature="e#609#610#0" expanded="true" />
-                    <element signature="e#672#673#0" expanded="true" />
-                    <element signature="e#726#727#0" expanded="true" />
-                    <element signature="e#985#986#0" expanded="true" />
-                    <element signature="e#1023#1024#0" expanded="true" />
-                    <element signature="e#1062#1063#0" expanded="true" />
-                    <element signature="e#1098#1099#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="TreasureCard.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/TreasureCard.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="204">
+                  <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                  <folding>
+                    <element signature="e#342#343#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -126,6 +124,60 @@
               </provider>
             </entry>
           </file>
+          <file leaf-file-name="ArtifactCard.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/ArtifactCard.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="187">
+                  <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="GameModel.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/GameModel.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="221">
+                  <caret line="271" column="4" lean-forward="false" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
+                  <folding>
+                    <element signature="docComment;class#GameModel#0" expanded="false" />
+                    <element signature="n#!!doc;n#deck#0;n#GameModel#0" expanded="false" />
+                    <element signature="class#Round#0;class#GameModel#0" expanded="false" />
+                    <element signature="class#Action#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#GameModel#0;class#GameModel#0" expanded="false" />
+                    <element signature="e#1210#1223#0" expanded="false" />
+                    <element signature="method#addPlayer#0;class#GameModel#0" expanded="false" />
+                    <element signature="n#!!doc;n#startRound#0;n#GameModel#0" expanded="false" />
+                    <element signature="method#startRound#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#startTurn#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#endRound#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#makeArtifact#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#promptChoices#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#distributeTreasure#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#goBackToTent#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#getGoBackCount#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#giveArtifactScore#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#hasTwoHazards#0;class#GameModel#0" expanded="false" />
+                    <element signature="n#!!doc;n#updateDeckCount#0;n#GameModel#0" expanded="false" />
+                    <element signature="method#showRound#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#showScoreBoard#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#showPlayerAction#0;class#GameModel#0" expanded="false" />
+                    <element signature="method#showQuestCard#0;class#GameModel#0" expanded="false" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="HazardCard.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/HazardCard.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
           <file leaf-file-name="GameEvent.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/GameEvent.java">
               <provider selected="true" editor-type-id="text-editor">
@@ -136,65 +188,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="CardContainer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/CardContainer.java">
+          <file leaf-file-name="GameController.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/GameController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="280">
-                  <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
-                  <folding>
-                    <element signature="e#272#273#0" expanded="true" />
-                    <element signature="e#300#301#0" expanded="true" />
-                    <element signature="e#467#468#0" expanded="true" />
-                    <element signature="e#498#499#0" expanded="true" />
-                    <element signature="e#527#528#0" expanded="true" />
-                    <element signature="e#561#562#0" expanded="true" />
-                    <element signature="e#590#591#0" expanded="true" />
-                    <element signature="e#625#626#0" expanded="true" />
-                    <element signature="e#644#645#0" expanded="true" />
-                    <element signature="e#678#679#0" expanded="true" />
-                    <element signature="e#700#701#0" expanded="true" />
-                    <element signature="e#742#743#0" expanded="true" />
-                    <element signature="e#769#770#0" expanded="true" />
-                    <element signature="e#819#820#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="194">
-                  <caret line="430" column="0" lean-forward="false" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#15414#15415#0" expanded="true" />
-                    <element signature="e#15459#15460#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/Player.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="708">
-                  <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#411#412#0" expanded="true" />
-                    <element signature="e#443#444#0" expanded="true" />
-                    <element signature="e#579#580#0" expanded="true" />
-                    <element signature="e#622#623#0" expanded="true" />
-                    <element signature="e#811#812#0" expanded="true" />
-                    <element signature="e#850#851#0" expanded="true" />
-                    <element signature="e#914#915#0" expanded="true" />
-                    <element signature="e#966#967#0" expanded="true" />
-                    <element signature="e#997#998#0" expanded="true" />
-                    <element signature="e#1024#1025#0" expanded="true" />
-                    <element signature="e#1069#1070#0" expanded="true" />
-                    <element signature="e#1101#1102#0" expanded="true" />
-                    <element signature="e#1141#1142#0" expanded="true" />
-                    <element signature="e#1178#1179#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="51">
+                  <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -206,18 +205,28 @@
           <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/Game.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="218">
-                  <caret line="283" column="48" lean-forward="true" selection-start-line="283" selection-start-column="48" selection-end-line="283" selection-end-column="48" />
+                <state relative-caret-position="248">
+                  <caret line="121" column="39" lean-forward="true" selection-start-line="121" selection-start-column="39" selection-end-line="121" selection-end-column="39" />
                   <folding>
                     <element signature="docComment;class#Game#0" expanded="false" />
                     <element signature="n#!!doc;n#mainPanel#0;n#Game#0" expanded="false" />
                     <element signature="n#!!doc;n#deck#0;n#Game#0" expanded="false" />
                     <element signature="class#Round#0;class#Game#0" expanded="false" />
                     <element signature="class#Action#0;class#Game#0" expanded="false" />
+                    <element signature="method#Game#0;class#Game#0" expanded="false" />
+                    <element signature="method#triggerAction#0;class#2319:4146" expanded="false" />
                     <element signature="e#2419#2438#0" expanded="false" />
                     <element signature="e#3078#3087#0" expanded="false" />
-                    <element signature="e#6022#6047#0" expanded="false" />
-                    <element signature="e#6201#6234#0" expanded="false" />
+                    <element signature="n#!!doc;n#startGame#0;n#Game#0" expanded="false" />
+                    <element signature="method#startGame#0;class#Game#0" expanded="false" />
+                    <element signature="method#run#0;class#Game#0" expanded="false" />
+                    <element signature="method#startRound#0;class#Game#0" expanded="false" />
+                    <element signature="e#6021#6046#0" expanded="false" />
+                    <element signature="method#startNextTurn#0;class#Game#0" expanded="false" />
+                    <element signature="e#6200#6233#0" expanded="false" />
+                    <element signature="method#endRound#0;class#Game#0" expanded="false" />
+                    <element signature="method#endGame#0;class#Game#0" expanded="false" />
+                    <element signature="method#makeArtifact#0;class#Game#0" expanded="false" />
                     <element signature="method#dealQuestCard#0;class#Game#0" expanded="false" />
                     <element signature="method#promptChoices#0;class#Game#0" expanded="false" />
                     <element signature="method#distributeTreasure#0;class#Game#0" expanded="false" />
@@ -225,15 +234,15 @@
                     <element signature="method#getGoBackCount#0;class#Game#0" expanded="false" />
                     <element signature="method#giveArtifactScore#0;class#Game#0" expanded="false" />
                     <element signature="method#hasTwoHazards#0;class#Game#0" expanded="false" />
-                    <element signature="e#15735#15754#0" expanded="false" />
+                    <element signature="e#15734#15753#0" expanded="false" />
                     <element signature="method#showRound#0;class#Game#0" expanded="false" />
                     <element signature="method#showScoreBoard#0;class#Game#0" expanded="false" />
                     <element signature="method#showPlayerAction#0;class#Game#0" expanded="false" />
                     <element signature="method#showQuestCard#0;class#Game#0" expanded="false" />
                     <element signature="method#initFrame#0;class#Game#0" expanded="false" />
-                    <element signature="e#18103#18123#0" expanded="false" />
+                    <element signature="e#18102#18122#0" expanded="false" />
                     <element signature="method#showFrame#0;class#Game#0" expanded="false" />
-                    <element signature="e#18210#18247#0" expanded="false" />
+                    <element signature="e#18209#18246#0" expanded="false" />
                     <element signature="method#showDeck#0;class#Game#0" expanded="false" />
                     <element signature="method#updateDeckCount#0;class#Game#0" expanded="false" />
                     <element signature="method#updateRoundIcon#0;class#Game#0" expanded="false" />
@@ -250,8 +259,8 @@
           <file leaf-file-name="Deck.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/Deck.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="527">
-                  <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+                <state relative-caret-position="391">
+                  <caret line="23" column="59" lean-forward="false" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
                   <folding />
                 </state>
               </provider>
@@ -261,7 +270,7 @@
             <entry file="file://$PROJECT_DIR$/src/main.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="289">
-                  <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+                  <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -281,7 +290,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>go back</find>
       <find>stay in the adventure</find>
       <find>Adventure:</find>
       <find>showQuestCard</find>
@@ -309,8 +317,9 @@
       <find>roundAlive</find>
       <find>each</find>
       <find>got</find>
-      <find>[G]o back</find>
       <find>end</find>
+      <find>endGa</find>
+      <find>[G]o back</find>
     </findStrings>
     <replaceStrings>
       <replace>this.playersList</replace>
@@ -340,13 +349,13 @@
         <option value="$PROJECT_DIR$/src/GameModel.java" />
         <option value="$PROJECT_DIR$/src/GameView.java" />
         <option value="$PROJECT_DIR$/src/Adventure.java" />
-        <option value="$PROJECT_DIR$/src/Game.form" />
         <option value="$PROJECT_DIR$/src/Deck.java" />
         <option value="$PROJECT_DIR$/src/GameEvent.java" />
         <option value="$PROJECT_DIR$/src/KeyController.java" />
         <option value="$PROJECT_DIR$/src/main.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/Game.form" />
       </list>
     </option>
   </component>
@@ -401,6 +410,24 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Game" />
+              <option name="myItemType" value="com.intellij.uiDesigner.projectView.FormNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IncanGold" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IncanGold" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -409,12 +436,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propGUI" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="376" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="160" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="339" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="136" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -437,9 +464,9 @@
     <configuration default="false" name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -447,7 +474,11 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="IncanGold" />
       <envs />
-      <method />
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="IncanGold:jar" />
+        </option>
+      </method>
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
@@ -698,7 +729,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12070312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12070312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -713,38 +744,6 @@
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39852008" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32769555" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3308668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19648437" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12070312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875264" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -912,22 +911,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../13167321-a1/src/Assignment_1/Program1.java" />
-    <entry file="file://$PROJECT_DIR$/src/Temple.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainMeunView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../battleship/battleship/src/battleship/BattleShip.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="191">
@@ -938,62 +921,6 @@
             <element signature="e#7007#7008#0" expanded="false" />
             <element signature="e#7085#7086#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainMeunModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainMeunController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="271" column="4" lean-forward="false" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
-          <folding>
-            <element signature="docComment;class#GameModel#0" expanded="false" />
-            <element signature="n#!!doc;n#deck#0;n#GameModel#0" expanded="false" />
-            <element signature="class#Round#0;class#GameModel#0" expanded="false" />
-            <element signature="class#Action#0;class#GameModel#0" expanded="false" />
-            <element signature="method#GameModel#0;class#GameModel#0" expanded="false" />
-            <element signature="e#1210#1223#0" expanded="false" />
-            <element signature="method#addPlayer#0;class#GameModel#0" expanded="false" />
-            <element signature="n#!!doc;n#startRound#0;n#GameModel#0" expanded="false" />
-            <element signature="method#startRound#0;class#GameModel#0" expanded="false" />
-            <element signature="method#startTurn#0;class#GameModel#0" expanded="false" />
-            <element signature="method#endRound#0;class#GameModel#0" expanded="false" />
-            <element signature="method#makeArtifact#0;class#GameModel#0" expanded="false" />
-            <element signature="method#promptChoices#0;class#GameModel#0" expanded="false" />
-            <element signature="method#distributeTreasure#0;class#GameModel#0" expanded="false" />
-            <element signature="method#goBackToTent#0;class#GameModel#0" expanded="false" />
-            <element signature="method#getGoBackCount#0;class#GameModel#0" expanded="false" />
-            <element signature="method#giveArtifactScore#0;class#GameModel#0" expanded="false" />
-            <element signature="method#hasTwoHazards#0;class#GameModel#0" expanded="false" />
-            <element signature="n#!!doc;n#updateDeckCount#0;n#GameModel#0" expanded="false" />
-            <element signature="method#showRound#0;class#GameModel#0" expanded="false" />
-            <element signature="method#showScoreBoard#0;class#GameModel#0" expanded="false" />
-            <element signature="method#showPlayerAction#0;class#GameModel#0" expanded="false" />
-            <element signature="method#showQuestCard#0;class#GameModel#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1020,14 +947,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="762" column="16" lean-forward="false" selection-start-line="762" selection-start-column="16" selection-end-line="762" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HazardCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1078,21 +997,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.form">
-      <provider selected="true" editor-type-id="ui-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TreasureCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#342#343#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1109,22 +1013,6 @@
             <element signature="e#15414#15415#0" expanded="true" />
             <element signature="e#15459#15460#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="6493" column="0" lean-forward="false" selection-start-line="6493" selection-start-column="0" selection-end-line="6493" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ArtifactCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1151,44 +1039,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/KeyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#310#311#0" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#672#673#0" expanded="true" />
-            <element signature="e#726#727#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1023#1024#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Dimension.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1211,15 +1061,7 @@
     <entry file="file://$PROJECT_DIR$/src/main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="9" lean-forward="true" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+          <caret line="17" column="1" lean-forward="false" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1227,7 +1069,7 @@
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding>
             <element signature="e#411#412#0" expanded="true" />
             <element signature="e#443#444#0" expanded="true" />
@@ -1247,20 +1089,172 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="6493" column="0" lean-forward="false" selection-start-line="6493" selection-start-column="0" selection-end-line="6493" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainMeunController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainMeunModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="26" lean-forward="false" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainMeunView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Temple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TreasureCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#342#343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ArtifactCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HazardCard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="271" column="4" lean-forward="false" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
+          <folding>
+            <element signature="docComment;class#GameModel#0" expanded="false" />
+            <element signature="n#!!doc;n#deck#0;n#GameModel#0" expanded="false" />
+            <element signature="class#Round#0;class#GameModel#0" expanded="false" />
+            <element signature="class#Action#0;class#GameModel#0" expanded="false" />
+            <element signature="method#GameModel#0;class#GameModel#0" expanded="false" />
+            <element signature="e#1210#1223#0" expanded="false" />
+            <element signature="method#addPlayer#0;class#GameModel#0" expanded="false" />
+            <element signature="n#!!doc;n#startRound#0;n#GameModel#0" expanded="false" />
+            <element signature="method#startRound#0;class#GameModel#0" expanded="false" />
+            <element signature="method#startTurn#0;class#GameModel#0" expanded="false" />
+            <element signature="method#endRound#0;class#GameModel#0" expanded="false" />
+            <element signature="method#makeArtifact#0;class#GameModel#0" expanded="false" />
+            <element signature="method#promptChoices#0;class#GameModel#0" expanded="false" />
+            <element signature="method#distributeTreasure#0;class#GameModel#0" expanded="false" />
+            <element signature="method#goBackToTent#0;class#GameModel#0" expanded="false" />
+            <element signature="method#getGoBackCount#0;class#GameModel#0" expanded="false" />
+            <element signature="method#giveArtifactScore#0;class#GameModel#0" expanded="false" />
+            <element signature="method#hasTwoHazards#0;class#GameModel#0" expanded="false" />
+            <element signature="n#!!doc;n#updateDeckCount#0;n#GameModel#0" expanded="false" />
+            <element signature="method#showRound#0;class#GameModel#0" expanded="false" />
+            <element signature="method#showScoreBoard#0;class#GameModel#0" expanded="false" />
+            <element signature="method#showPlayerAction#0;class#GameModel#0" expanded="false" />
+            <element signature="method#showQuestCard#0;class#GameModel#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/KeyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="71" lean-forward="false" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="59" lean-forward="false" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="283" column="48" lean-forward="true" selection-start-line="283" selection-start-column="48" selection-end-line="283" selection-end-column="48" />
+        <state relative-caret-position="306">
+          <caret line="711" column="0" lean-forward="true" selection-start-line="711" selection-start-column="0" selection-end-line="711" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#Game#0" expanded="false" />
             <element signature="n#!!doc;n#mainPanel#0;n#Game#0" expanded="false" />
             <element signature="n#!!doc;n#deck#0;n#Game#0" expanded="false" />
             <element signature="class#Round#0;class#Game#0" expanded="false" />
             <element signature="class#Action#0;class#Game#0" expanded="false" />
+            <element signature="method#Game#0;class#Game#0" expanded="false" />
+            <element signature="class#2319:4146" expanded="false" />
+            <element signature="method#triggerAction#0;class#2319:4146" expanded="false" />
             <element signature="e#2419#2438#0" expanded="false" />
             <element signature="e#3078#3087#0" expanded="false" />
-            <element signature="e#6022#6047#0" expanded="false" />
-            <element signature="e#6201#6234#0" expanded="false" />
+            <element signature="method#confirmNextRound#0;class#2319:4146" expanded="false" />
+            <element signature="n#!!doc;n#startGame#0;n#Game#0" expanded="false" />
+            <element signature="method#startGame#0;class#Game#0" expanded="false" />
+            <element signature="method#run#0;class#Game#0" expanded="false" />
+            <element signature="method#startRound#0;class#Game#0" expanded="false" />
+            <element signature="e#6021#6046#0" expanded="false" />
+            <element signature="method#startNextTurn#0;class#Game#0" expanded="false" />
+            <element signature="e#6200#6233#0" expanded="false" />
+            <element signature="method#endRound#0;class#Game#0" expanded="false" />
+            <element signature="method#endGame#0;class#Game#0" expanded="false" />
+            <element signature="method#makeArtifact#0;class#Game#0" expanded="false" />
             <element signature="method#dealQuestCard#0;class#Game#0" expanded="false" />
             <element signature="method#promptChoices#0;class#Game#0" expanded="false" />
             <element signature="method#distributeTreasure#0;class#Game#0" expanded="false" />
@@ -1268,15 +1262,15 @@
             <element signature="method#getGoBackCount#0;class#Game#0" expanded="false" />
             <element signature="method#giveArtifactScore#0;class#Game#0" expanded="false" />
             <element signature="method#hasTwoHazards#0;class#Game#0" expanded="false" />
-            <element signature="e#15735#15754#0" expanded="false" />
+            <element signature="e#15734#15753#0" expanded="false" />
             <element signature="method#showRound#0;class#Game#0" expanded="false" />
             <element signature="method#showScoreBoard#0;class#Game#0" expanded="false" />
             <element signature="method#showPlayerAction#0;class#Game#0" expanded="false" />
             <element signature="method#showQuestCard#0;class#Game#0" expanded="false" />
             <element signature="method#initFrame#0;class#Game#0" expanded="false" />
-            <element signature="e#18103#18123#0" expanded="false" />
+            <element signature="e#18102#18122#0" expanded="false" />
             <element signature="method#showFrame#0;class#Game#0" expanded="false" />
-            <element signature="e#18210#18247#0" expanded="false" />
+            <element signature="e#18209#18246#0" expanded="false" />
             <element signature="method#showDeck#0;class#Game#0" expanded="false" />
             <element signature="method#updateDeckCount#0;class#Game#0" expanded="false" />
             <element signature="method#updateRoundIcon#0;class#Game#0" expanded="false" />
@@ -1289,16 +1283,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>IncanGold:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="IncanGold:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/IncanGold_jar</output-path>
+    <root id="archive" name="IncanGold.jar">
+      <element id="module-output" name="IncanGold" />
+    </root>
+  </artifact>
+</component>
