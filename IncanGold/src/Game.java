@@ -104,6 +104,7 @@ public class Game extends JFrame implements Runnable {
                 if(!roundAlive) {
                     //  detect if end of round -> setup new round = roundAlive
                     endRound();
+                    //Disable player turn input and wait for confirm
                     _keyController.set_waitForConfirm(true);
                     _keyController.set_playerInputActive(false);
                 }
@@ -184,6 +185,7 @@ public class Game extends JFrame implements Runnable {
         this.deck.shuffle();
 
         showRound();
+        updateDeckCount(deck.getCards().size());
 
         // Deal Card first card
         dealQuestCard();
@@ -333,7 +335,7 @@ public class Game extends JFrame implements Runnable {
 
             case Four:
             case Five:
-                return new ArtifactCard("Artifact", "/img/artifact1.PNG", 10);
+                return new ArtifactCard("Artifact", "/img/artifact2.PNG", 10);
 
             default:
                 return new ArtifactCard("Artifact", "/img/artifact1.PNG", 5);

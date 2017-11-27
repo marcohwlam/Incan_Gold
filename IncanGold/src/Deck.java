@@ -11,7 +11,7 @@ public class Deck extends CardContainer {
     }
 
     private void loadDeck() {
-        push(new TreasureCard("1 Gem", "/img/T7.PNG", 1));
+        push(new TreasureCard("1 Gem", "/img/T1.PNG", 1));
         for (int i = 2; i <= 5; i++) {
             push(new TreasureCard(i + " Gems", "/img/T" + i + ".PNG", i));
         }
