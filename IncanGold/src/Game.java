@@ -29,7 +29,7 @@ public class Game extends JFrame implements Runnable {
     private JLabel turnTraker;
     private JLabel treasureOnTheRoadLabel;
     private JPanel player1Area;
-    private JPanel player5Area;
+    private JPanel player4Area;
     private JPanel player2Area;
     private JPanel player3Area;
     private JLabel player1Hand;
@@ -45,6 +45,10 @@ public class Game extends JFrame implements Runnable {
     private JLabel player4ActionCard;
     private JLabel player4Hand;
     private JLabel noticeBar;
+    private JLabel player1TurnArrow;
+    private JLabel player2TurnArrow;
+    private JLabel player3TurnArrow;
+    private JLabel player4TurnArrow;
     public ArrayList<JLabel> qCardLabels = new ArrayList<>();
     public JFrame frame;
 
@@ -60,7 +64,8 @@ public class Game extends JFrame implements Runnable {
     private int artifactCount = 0;
     private boolean gameAlive = true;
     private boolean roundAlive = true;
-    boolean _gameActive = false;
+    boolean confirmTurn = true;
+    boolean confirmRound= false;
 
 
     private enum Round {One, Two, Three, Four, Five}
@@ -81,50 +86,68 @@ public class Game extends JFrame implements Runnable {
         public void triggerAction(Action action) {
 
             // determine player
-            // if no player in the temple
             if (playersInTemple.size()==0){
                 System.out.println("No player in temple");
                 roundAlive = false;
                 _keyController.setActivePlayer(null);
+                updateActivePlayerIcon(null);
             }else {
                 playerAction.put(_keyController.getActivePlayer(), action);
                 //handel last player
                 if (playersInDecision.size() > 1){
                     //set active player to the next
                     _keyController.setActivePlayer(playersInDecision.get(1));
+                    updateActivePlayerIcon(playersInDecision.get(1));
                 }
                 playersInDecision.remove(0);
             }
 
-            // action
+            if (playersInDecision.size() != 0){
+                _keyController.setActivePlayer(playersInDecision.get(0));
+                updateActivePlayerIcon(playersInDecision.get(0));
+                String  msg = _keyController.getActivePlayer().getName() + " turn, Press [S]tay [G]o back to tent";
+                System.out.println(msg);
+                turnTraker.setText(msg);
+            }
+
             // When everyone is done with action
             if (playersInDecision.size() == 0){
-                //  detect end of game = gameAlive
-                startNextTurn();
-                if(!roundAlive) {
-                    //  detect if end of round -> setup new round = roundAlive
-                    endRound();
-                    //Disable player turn input and wait for confirm
-                    _keyController.set_waitForConfirm(true);
-                    _keyController.set_playerInputActive(false);
-                }
-                if (roundAlive){
-                    _keyController.setActivePlayer(playersInTemple.get(0));
-                }
-            }
-            if (roundAlive){
-                String  msg = _keyController.getActivePlayer().getName() + " turn, Press [S]tay [G]o back to tent";
-                System.out.println( msg);
-                turnTraker.setText(msg);
+                endTurn();
+                //Disable player turn input and wait for confirm
+                _keyController.set_waitForConfirm(true);
+                _keyController.set_playerInputActive(false);
+                updateActivePlayerIcon(null);
             }
         }
 
         @Override
-        public void confirmNextRound(){
-            if (!gameAlive) {
-                endGame();
-            }else {
-                startRound();
+        public void confirmNext(){
+            // reset wait for enter flag
+            set_waitForConfirm(false);
+            set_playerInputActive(true);
+
+            if (confirmTurn) {
+                //  start next turn
+                if(!roundAlive) {
+                    //  detect if end of round -> setup new round = roundAlive
+                    endRound();
+                    confirmTurn = false;
+                    confirmRound = true;
+                }
+                if(playersInTemple.size() != 0){
+                    startNextTurn();
+                }
+                showActionCardBack();
+            }
+
+            if (confirmRound){
+                if (!gameAlive) {
+                    endGame();
+                }else {
+                    startRound();
+                    confirmTurn = true;
+                    confirmRound = false;
+                }
             }
         }
     };
@@ -158,6 +181,36 @@ public class Game extends JFrame implements Runnable {
         _keyController.set_playerInputActive(true);
     }
 
+    private void endTurn() {
+        // Show action
+        showPlayerAction();
+
+        //goBackToTent
+        goBackToTent();
+
+        // Put all the player back to decision
+        System.out.print("Player still in temple: ");
+        for (Player p : playersInTemple){
+            System.out.print(p.getName()+" ");
+        }
+        System.out.println();
+        this.playersInDecision.addAll(this.playersInTemple);
+
+        //End false if no one in temple
+        if (playersInTemple.size() == 0) {
+            roundAlive = false;
+            String msg = "All explore head back to tent. Press Enter to start next round";
+            System.out.println( msg);
+            turnTraker.setText(msg);
+        }else {
+            String msg = "Turn over, Press Enter to start next turn";
+            System.out.println(msg);
+            turnTraker.setText(msg);
+        }
+
+
+    }
+
     private void startRound() {
         System.out.println("Start new round");
         roundAlive =true;
@@ -169,10 +222,11 @@ public class Game extends JFrame implements Runnable {
 
         //reset action card icon
         for (Player p : playersInTemple) {
-            updatePlayerActionCard(p);
+            showActionCardBack();
         }
 
         _keyController.setActivePlayer(playersInDecision.get(0));
+        updateActivePlayerIcon(playersInDecision.get(0));
         // Prompt Player 1 action
         String  msg = _keyController.getActivePlayer().getName() + " turn Press [S]tay, [G]o back to tent";
         System.out.println(msg);
@@ -202,34 +256,11 @@ public class Game extends JFrame implements Runnable {
     }
 
     private  void startNextTurn() {
-
-//        // Player decide action
-//        for (Player p : this.playersInTemple) {
-//            System.out.print(p.getName() + "\n");
-//            this.playerAction.put(p, promptChoices());
-//        }
-
-        // Show action
-        showPlayerAction();
-
-        //goBackToTent
-        goBackToTent();
-
-        // Put all the player back to decision
-        System.out.print("Player still in temple: ");
-        for (Player p : playersInTemple){
-            System.out.print(p.getName()+" ");
-        }
-        System.out.println();
-        this.playersInDecision.addAll(this.playersInTemple);
-
-        //End false if no one in temple
-        if (playersInTemple.size() == 0) {
-            roundAlive = false;
-            String  msg = "All explore head back to tent.";
-            System.out.println( msg);
-            turnTraker.setText(msg);
-        }
+        _keyController.setActivePlayer(playersInDecision.get(0));
+        updateActivePlayerIcon(playersInDecision.get(0));
+        String  msg = _keyController.getActivePlayer().getName() + " turn, Press [S]tay [G]o back to tent";
+        System.out.println(msg);
+        turnTraker.setText(msg);
 
         if (roundAlive){
             // Deal Card for next turn
@@ -249,6 +280,10 @@ public class Game extends JFrame implements Runnable {
                 // Check Hazard
                 System.out.print("Boom");
                 roundAlive = !hasTwoHazards();
+                if (!roundAlive){
+                    _keyController.set_waitForConfirm(true);
+                    _keyController.set_playerInputActive(false);
+                }
             }
         }
     }
@@ -386,6 +421,11 @@ public class Game extends JFrame implements Runnable {
         ArrayList<Player> pT = (ArrayList<Player>) this.playersInTemple.clone();
         for (Player p : pT) {
             if (this.playerAction.get(p) == Game.Action.Go_Back) {
+
+                String msg = goBackCount + " player(s) go back to tent, each got " + this.adventure.getTreasureOnTheRoad() / goBackCount + " gem(s) on the road back";
+                System.out.println(msg);
+                noticeBar.setText(msg);
+
                 // Add hand score to tent
                 p.addTentScore(p.getHandScore());
 
@@ -405,9 +445,14 @@ public class Game extends JFrame implements Runnable {
                 updatePlayerHandScore(p);
             }
         }
+
         // Treasure left on the road is the remainder
         if (goBackCount != 0){
             this.adventure.setTreasureOnTheRoad(this.adventure.getTreasureOnTheRoad() % goBackCount);
+        }else {
+            String msg = "All player in temple decide to continue explore!";
+            System.out.println(msg);
+            noticeBar.setText(msg);
         }
         updateTreasureOnTheRoad();
     }
@@ -426,7 +471,7 @@ public class Game extends JFrame implements Runnable {
         // Remove all artifact from adventure
         ArrayList<Card> tempCardList = this.adventure.popAllArtifact();
 
-        if (tempCardList != null) {
+        if (tempCardList.size() != 0) {
             // give the only leaving player artifact score
             for (Card c : tempCardList) {
                 if (artifactCount < 4) {
@@ -441,7 +486,7 @@ public class Game extends JFrame implements Runnable {
                 artifactCount ++;
             }
             //update notice bar
-            noticeBar.setText( noticeBar.getText() + p.getName() + "got " + tempCardList.size() + "artifact back to tent");
+            noticeBar.setText( noticeBar.getText() + " "+ p.getName() + " got " + tempCardList.size() + " artifact back to tent");
             updateTentScore(p);
         }
     }
@@ -460,9 +505,8 @@ public class Game extends JFrame implements Runnable {
                     //If there is same type of hazard before end the round
                     if (hazardName.equals(tempCardList.get(i).getName())) {
                         // End round
-                        noticeBar.setText("The explorers saw two " + tempCardList.get(i).getName() + "They ran away from the temple. (These type of hazard will be removed from the deck)");
-                        noticeBar.revalidate();
-                        noticeBar.repaint();
+                        noticeBar.setText("The explorers saw two " + tempCardList.get(i).getName() + " They ran away from the temple. (These type of hazard will be removed from the deck)");
+                        turnTraker.setText("Round ended. Press Enter to start next round");
                         return true;
                     }
                 }
@@ -473,6 +517,60 @@ public class Game extends JFrame implements Runnable {
     //endregion
 
     // region UI update
+    void showActionCardBack(){
+        for (Player p : this.playersInTemple) {
+            JLabel actionCard = player1ActionCard;
+            switch (p.getName()) {
+                case "Player 1":
+                    actionCard = player1ActionCard;
+                    break;
+                case "Player 2":
+                    actionCard = player2ActionCard;
+                    break;
+                case "Player 3":
+                    actionCard = player3ActionCard;
+                    break;
+                case "Player 4":
+                    actionCard = player4ActionCard;
+                    break;
+            }
+            try {
+                BufferedImage img = ImageIO.read(this.getClass().getResource("/img/actionCardBack.PNG"));
+                actionCard.setIcon(new ImageIcon(img));
+                actionCard.setIcon(new ImageIcon(img));
+                actionCard.revalidate();
+                actionCard.repaint();
+            } catch (IOException ex) {
+                // handle exception...
+                System.out.print("Error loading actionCardBack image");
+            }
+        }
+    }
+
+    private void updateActivePlayerIcon(Player p){
+        player1TurnArrow.setVisible(false);
+        player2TurnArrow.setVisible(false);
+        player3TurnArrow.setVisible(false);
+        player4TurnArrow.setVisible(false);
+        if (p != null){
+            JLabel turnArrow = player1TurnArrow;
+            switch (p.getName()){
+                case "Player 1":
+                    turnArrow = player1TurnArrow;
+                    break;
+                case "Player 2":
+                    turnArrow = player2TurnArrow;
+                    break;
+                case "Player 3":
+                    turnArrow = player3TurnArrow;
+                    break;
+                case "Player 4":
+                    turnArrow = player4TurnArrow;
+                    break;
+            }
+            turnArrow.setVisible(true);
+        }
+    }
 
     private void showRound() {
         String roundImgPath = "/img/round1.PNG";
@@ -519,13 +617,41 @@ public class Game extends JFrame implements Runnable {
 
     private void showPlayerAction() {
         for (Player p : this.playersInTemple) {
-            Game.Action act = this.playerAction.get(p);
-            if (act == Game.Action.Go_Back) {
-                System.out.print(p.getName() + "go back to tent\n");
-            } else {
-                System.out.print(p.getName() + "stay in the adventure\n");
+            JLabel actionCard = player1ActionCard;
+            switch (p.getName()){
+                case "Player 1":
+                    actionCard = player1ActionCard;
+                    break;
+                case "Player 2":
+                    actionCard = player2ActionCard;
+                    break;
+                case "Player 3":
+                    actionCard = player3ActionCard;
+                    break;
+                case "Player 4":
+                    actionCard = player4ActionCard;
+                    break;
             }
 
+            Game.Action act = this.playerAction.get(p);
+            String imgPath;
+            if (act == Game.Action.Go_Back) {
+                System.out.print(p.getName() + "go back to tent\n");
+                imgPath = "/img/actionCardGoTent.PNG";
+            } else {
+                System.out.print(p.getName() + "stay in the adventure\n");
+                imgPath  = "/img/actionCardStay.PNG";
+            }
+            try {
+                BufferedImage img = ImageIO.read(this.getClass().getResource(imgPath));
+                actionCard.setIcon(new ImageIcon(img));
+                actionCard.setIcon(new ImageIcon(img));
+                actionCard.revalidate();
+                actionCard.repaint();
+            } catch (IOException ex) {
+                // handle exception...
+                System.out.print("Error loading deck image");
+            }
         }
     }
 
@@ -656,7 +782,7 @@ public class Game extends JFrame implements Runnable {
         try {
             String imgPath;
             if (playersInTemple.contains(p)){
-                imgPath = "/img/actionCardBack.PNG";
+                imgPath = "/img/actionCardStay.PNG";
             }else {
                 imgPath = "/img/actionCardGoTent.PNG";
             }
@@ -665,7 +791,7 @@ public class Game extends JFrame implements Runnable {
             actionCard.revalidate();
             actionCard.repaint();
         } catch (IOException ex) {
-            System.out.print("Error loading actionCardBack image");
+            System.out.print("Error loading actionCard image");
         }
 
     }

@@ -5,5 +5,7 @@ public interface GameEvent {
 
     public void triggerAction(Game.Action action);
 
-    public void confirmNextRound();
+    public void confirmNext();
+
+
 }

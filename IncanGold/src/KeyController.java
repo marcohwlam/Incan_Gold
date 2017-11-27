@@ -56,10 +56,8 @@ public abstract class KeyController implements KeyListener, GameEvent {
         if (_activePlayer == null)
             return;
         if (_waitForConfirm){
-            if (e.getKeyChar() ==KeyEvent.VK_ENTER){
-                confirmNextRound();
-                set_waitForConfirm(false);
-                set_playerInputActive(true);
+            if (e.getKeyChar() == KeyEvent.VK_ENTER){
+                confirmNext();
             }
         }
 
