@@ -391,7 +391,7 @@ public class Game extends JFrame implements Runnable {
 
     private void dealQuestCard() {
         this.adventure.push(this.deck.pop());
-        playFlipCardSound();
+        //playFlipCardSound();
         noticeBar.setText("You found: " + adventure.getCards().get(adventure.getCards().size()-1).getName());
     }
 
@@ -848,20 +848,20 @@ public class Game extends JFrame implements Runnable {
         qCardLabels.clear();
     }
 
-    void playFlipCardSound(){
-        try {
-            // open the sound file as a Java input stream
-            String gongFile = "/sound/Flip_Card.mp3";
-            InputStream inputStream = getClass().getResourceAsStream(gongFile);
-            AudioStream audioStream = new AudioStream(inputStream);
-
-            // play the audio clip with the audioplayer class
-            AudioPlayer.player.start(audioStream);
-
-        } catch (IOException ex) {
-            System.out.print("Error playing flip card sound");
-        }
-    }
+//    void playFlipCardSound(){
+//        try {
+//            // open the sound file as a Java input stream
+//            String gongFile = "/sound/Flip_Card.mp3";
+//            InputStream inputStream = getClass().getResourceAsStream(gongFile);
+//            AudioStream audioStream = new AudioStream(inputStream);
+//
+//            // play the audio clip with the audioplayer class
+//            AudioPlayer.player.start(audioStream);
+//
+//        } catch (IOException ex) {
+//            System.out.print("Error playing flip card sound");
+//        }
+//    }
     // endregion
 
 }
