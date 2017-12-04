@@ -2,10 +2,13 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.List;
+import java.io.*;
+import sun.audio.*;
 
 /**
  * Created by Ho on 11/11/2017.
@@ -16,9 +19,6 @@ public class Game extends JFrame implements Runnable {
     public JPanel mainPanel;
     public JPanel topBar;
     public JPanel centerPan;
-    public JPanel botPan;
-    public JPanel leftPan;
-    public JPanel rightPan;
     public JPanel deckArea;
     public JPanel questArea;
     public JPanel roundTrackerArea;
@@ -49,9 +49,20 @@ public class Game extends JFrame implements Runnable {
     private JLabel player2TurnArrow;
     private JLabel player3TurnArrow;
     private JLabel player4TurnArrow;
+
     public ArrayList<JLabel> qCardLabels = new ArrayList<>();
     public JFrame frame;
 
+    private ImagePanel background;
+
+    private void createUIComponents(){
+        try {
+            BufferedImage myImage = ImageIO.read(this.getClass().getResource("/img/wood_background.png"));
+            background = new ImagePanel(myImage);
+        } catch (IOException ex) {
+            System.out.print("Error loading round image");
+        }
+    }
     //endregion
 
     // region Var
@@ -239,7 +250,6 @@ public class Game extends JFrame implements Runnable {
         this.deck.shuffle();
 
         showRound();
-        updateDeckCount(deck.getCards().size());
 
         // Deal Card first card
         dealQuestCard();
@@ -248,6 +258,8 @@ public class Game extends JFrame implements Runnable {
             // Distribute treasure
             distributeTreasure();
         }
+        // update deck count
+        updateDeckCount(deck.getCards().size());
 //        // Start turn 1
 //        while (roundAlive) {
 //            roundAlive = startNextTurn();
@@ -379,6 +391,7 @@ public class Game extends JFrame implements Runnable {
 
     private void dealQuestCard() {
         this.adventure.push(this.deck.pop());
+        playFlipCardSound();
         noticeBar.setText("You found: " + adventure.getCards().get(adventure.getCards().size()-1).getName());
     }
 
@@ -667,7 +680,7 @@ public class Game extends JFrame implements Runnable {
     }
 
     void initFrame() {
-        frame = new JFrame("Game");
+        frame = new JFrame("Incan Gold");
         frame.setContentPane(mainPanel);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.pack();
@@ -833,6 +846,21 @@ public class Game extends JFrame implements Runnable {
         }
         // Clear label array
         qCardLabels.clear();
+    }
+
+    void playFlipCardSound(){
+        try {
+            // open the sound file as a Java input stream
+            String gongFile = "/sound/Flip_Card.mp3";
+            InputStream inputStream = getClass().getResourceAsStream(gongFile);
+            AudioStream audioStream = new AudioStream(inputStream);
+
+            // play the audio clip with the audioplayer class
+            AudioPlayer.player.start(audioStream);
+
+        } catch (IOException ex) {
+            System.out.print("Error playing flip card sound");
+        }
     }
     // endregion
 
