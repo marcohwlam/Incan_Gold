@@ -1,6 +1,6 @@
-# Incan_Gold
+# Incan Gold
 ## Intro
-This will be a java program based on swing to mimic the table top board game Incan Gold by Alan R. Moon’s and Bruno Faidutti’s. The players of Incan Gold are adventurers who have chosen to explore an Incan temple rumored to contain many treasures. Of course, the temple is said to be full of dangers too. The player who knows when enough has been gained and still gets out safely will be the ultimate winner. The game can have 3 to 8 players, and each game will take about 7 min to finish. The player can see all the cards of the round and the game process and their scores. Since the program is running on a single machine, player will take turn to make decision. After all the players have decide their action, the program will show whatever the players pick and move the cards accordingly.
+This is a java program based on swing to mimic the table top board game Incan Gold by Alan R. Moon’s and Bruno Faidutti’s. The players of Incan Gold are adventurers who have chosen to explore an Incan temple rumored to contain many treasures. Of course, the temple is said to be full of dangers too. The player who knows when enough has been gained and still gets out safely will be the ultimate winner. The game can have 3 to 8 players, and each game will take about 7 min to finish. The player can see all the cards of the round and the game process and their scores. Since the program is running on a single machine, player will take turn to make decision. After all the players have decide their action, the program will show whatever the players pick and move the cards accordingly.
 
 ## Rules
 The game itself contain these competes:
